@@ -1,5 +1,5 @@
 using GeophysicalFlows, Random, Printf, Plots
-using FourierFlows: parsevalsum
+parsevalsum = FourierFlows.parsevalsum
 
 dev = CPU()     # Device (CPU/GPU)
 nothing # hide
