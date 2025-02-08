@@ -88,22 +88,22 @@ end
 
 savediagnostic(E, &quot;energy&quot;, output.path)
 savediagnostic(Z, &quot;enstrophy&quot;, output.path)</code></pre><pre><code class="nohighlight hljs">step: 0000, t: 0, cfl: 0.00, E: 0.0000, Q: 0.0000, walltime: 0.00 min
-step: 0500, t: 25, cfl: 0.60, E: 0.0192, Q: 2.7431, walltime: 0.05 min
-step: 1000, t: 50, cfl: 0.67, E: 0.0313, Q: 2.9683, walltime: 0.07 min
+step: 0500, t: 25, cfl: 0.60, E: 0.0192, Q: 2.7431, walltime: 0.04 min
+step: 1000, t: 50, cfl: 0.67, E: 0.0313, Q: 2.9683, walltime: 0.06 min
 step: 1500, t: 75, cfl: 0.70, E: 0.0377, Q: 2.8375, walltime: 0.09 min
 step: 2000, t: 100, cfl: 0.75, E: 0.0406, Q: 2.7452, walltime: 0.11 min
 step: 2500, t: 125, cfl: 0.76, E: 0.0436, Q: 2.8703, walltime: 0.13 min
 step: 3000, t: 150, cfl: 0.91, E: 0.0453, Q: 2.7849, walltime: 0.15 min
 step: 3500, t: 175, cfl: 0.74, E: 0.0449, Q: 2.6579, walltime: 0.17 min
-step: 4000, t: 200, cfl: 0.81, E: 0.0454, Q: 2.7357, walltime: 0.20 min
-step: 4500, t: 225, cfl: 0.77, E: 0.0451, Q: 2.5594, walltime: 0.22 min
+step: 4000, t: 200, cfl: 0.81, E: 0.0454, Q: 2.7357, walltime: 0.19 min
+step: 4500, t: 225, cfl: 0.77, E: 0.0451, Q: 2.5594, walltime: 0.21 min
 step: 5000, t: 250, cfl: 0.77, E: 0.0458, Q: 2.6418, walltime: 0.24 min
-step: 5500, t: 275, cfl: 0.71, E: 0.0455, Q: 2.6214, walltime: 0.27 min
-step: 6000, t: 300, cfl: 0.77, E: 0.0462, Q: 2.7571, walltime: 0.29 min
-step: 6500, t: 325, cfl: 0.86, E: 0.0465, Q: 2.7127, walltime: 0.31 min
-step: 7000, t: 350, cfl: 0.83, E: 0.0463, Q: 2.5924, walltime: 0.34 min
-step: 7500, t: 375, cfl: 0.90, E: 0.0463, Q: 2.6251, walltime: 0.36 min
-step: 8000, t: 400, cfl: 0.87, E: 0.0450, Q: 2.4965, walltime: 0.39 min
+step: 5500, t: 275, cfl: 0.71, E: 0.0455, Q: 2.6214, walltime: 0.26 min
+step: 6000, t: 300, cfl: 0.77, E: 0.0462, Q: 2.7571, walltime: 0.28 min
+step: 6500, t: 325, cfl: 0.86, E: 0.0465, Q: 2.7127, walltime: 0.30 min
+step: 7000, t: 350, cfl: 0.83, E: 0.0463, Q: 2.5924, walltime: 0.33 min
+step: 7500, t: 375, cfl: 0.90, E: 0.0463, Q: 2.6251, walltime: 0.35 min
+step: 8000, t: 400, cfl: 0.87, E: 0.0450, Q: 2.4965, walltime: 0.38 min
 </code></pre><h2 id="Load-saved-output-and-visualize"><a class="docs-heading-anchor" href="#Load-saved-output-and-visualize">Load saved output and visualize</a><a id="Load-saved-output-and-visualize-1"></a><a class="docs-heading-anchor-permalink" href="#Load-saved-output-and-visualize" title="Permalink"></a></h2><p>We now have output from our simulation saved in <code>singlelayerqg_forcedbeta.jld2</code> which we can load to create a time series for the fields we are interested in.</p><pre><code class="language-julia hljs">file = jldopen(output.path)
 
 iterations = parse.(Int, keys(file[&quot;snapshots/t&quot;]))
@@ -193,4 +193,4 @@ record(fig, &quot;singlelayerqg_betaforced.mp4&quot;, frames, framerate = 16) do
 
   energy[]    = push!(energy[],    Point2f(μ * E_t[i], E_data[i]))
   enstrophy[] = push!(enstrophy[], Point2f(μ * Z_t[i], Z_data[i]))
-end</code></pre><p><video src="../singlelayerqg_betaforced.mp4" controls="true" title><a href="../singlelayerqg_betaforced.mp4"></a></video></p><hr/><p><em>This page was generated using <a href="https://github.com/fredrikekre/Literate.jl">Literate.jl</a>.</em></p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../singlelayerqg_betadecay/">« Decaying barotropic QG beta-plane turbulence</a><a class="docs-footer-nextpage" href="../singlelayerqg_decaying_topography/">Decaying barotropic QG turbulence over topography »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.8.0 on <span class="colophon-date" title="Wednesday 29 January 2025 20:38">Wednesday 29 January 2025</span>. Using Julia version 1.11.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+end</code></pre><p><video src="../singlelayerqg_betaforced.mp4" controls="true" title><a href="../singlelayerqg_betaforced.mp4"></a></video></p><hr/><p><em>This page was generated using <a href="https://github.com/fredrikekre/Literate.jl">Literate.jl</a>.</em></p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../singlelayerqg_betadecay/">« Decaying barotropic QG beta-plane turbulence</a><a class="docs-footer-nextpage" href="../singlelayerqg_decaying_topography/">Decaying barotropic QG turbulence over topography »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.8.0 on <span class="colophon-date" title="Saturday 8 February 2025 01:10">Saturday 8 February 2025</span>. Using Julia version 1.11.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
